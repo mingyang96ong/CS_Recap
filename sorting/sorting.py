@@ -234,7 +234,7 @@ def radix_sort_negative(arr: List[int]) -> List[int]:
         1a. If there is negative values, move the negative values to the front of the array. The order does not matter here so we can just swap.
         1b. Meanwhile, we keep track of the size of the negative array.
         1c. Set the negative value into its positive form
-    2. Run radix sort from 0 to size of the negative array.
+    2. Run radix sort from 0 to size of the negative array descendingly because the values are originally negative
     3. Run radix sort from size of negative array to size of full array
 
     Some optimisation
@@ -260,7 +260,7 @@ def radix_sort_negative(arr: List[int]) -> List[int]:
                 negative_end_index += 1
         # We know negative values are from 0 to negative_end_index (excluded)
     
-    def radix_sort_helper(arr: List[int], start: int, end: int, desc: bool =False, is_orig_neg: bool=False):
+    def radix_sort_helper(arr: List[int], start: int, end: int, desc: bool = False, is_orig_neg: bool = False):
         if start >= end:
             return
         
@@ -395,9 +395,9 @@ def quick_sort_better(arr: List[int]) -> List[int]:
         # Consider this
         # [1,1,2,5,5,5,8,9,3] # i = 8, pivot_index = 5, smaller_index = 3
         # [1,1,2] [5,5,5] [8,9,3] Notice 8 needs to move to arr[i] 3's position, 3 need to move to arr[pivot_index+1] 8's position
-        # [1,1,2] [5,5,5] [3,8,9] Notice that 3 at arr[pivot_index+1] need to move to arr[smaller_index(3)] 5's position 
-        # [1,1,2] [3,5,5] [5,8,9] If we move the pivot_index and smaller_index, we will then partition them correctly
-        # [1,1,2,3] [5,5,5] [8,9] pivot_index = 6 and smaller_index= 4
+        # [1,1,2] [5,5,5] [3,9,8] Notice that 3 at arr[pivot_index+1] need to move to arr[smaller_index(3)] 5's position 
+        # [1,1,2] [3,5,5] [5,9,8] If we move the pivot_index and smaller_index, we will then partition them correctly
+        # [1,1,2,3] [5,5,5] [9,8] pivot_index = 6 and smaller_index= 4
         pivot_index = start
         smaller_index = start
 

@@ -268,7 +268,7 @@ def is_palindrome_number(x: int) -> bool:
         msd_mask //= 100
     return True
 
-def generate_uniform_random_number(lower_bound, upper_bound):
+def generate_uniform_random_number(lower_bound: int, upper_bound: int) -> int:
     """
     Given a random number generator that only produce 0 and 1 at an equal probability,
     Generate a random number between lower_bound and upper_bound
@@ -305,7 +305,7 @@ def generate_uniform_random_number(lower_bound, upper_bound):
 
 Rectangle = collections.namedtuple('Rectangle', ('x', 'y', 'width', 'height'))
 
-def intersect_rectangle(R1, R2):
+def intersect_rectangle(R1: Rectangle, R2: Rectangle) -> Rectangle:
     """
     R2.x + R2.width = R2's Rightmost x
     R1.x + R1.width = R1's Rightmost x
